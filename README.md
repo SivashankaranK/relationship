@@ -1,2 +1,2 @@
 # relationship
-Node JS Table relationship
+Node JS - Basic Table relationship
