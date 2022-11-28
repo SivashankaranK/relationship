@@ -1,13 +1,17 @@
-import { JsonController, Post, Res } from 'routing-controllers';
-
+import { JsonController, Post, Res, QueryParam, Body, Params } from 'routing-controllers';
+import { userDetilsSchema } from '../schema/details';
+import { ReferenceSchema } from '../schema/reference';
+import 'reflect-metadata';
 
 @JsonController('/details')
 export default class UserDetails {
 
     @Post('/')
-    addOrUpdateUser() {
-        console.log('update user');
-        return 'Inside Update User'
-        // Res('Inside Update User');
+    addOrUpdateUser(@QueryParam('data') query: any, @Body() dataObj:any, @Params() params:any) {
+        console.log('query', query);
+        console.log('dataObj', dataObj);
+        console.log('params', params);
+
+        return userDetilsSchema.find();
     }
 }
